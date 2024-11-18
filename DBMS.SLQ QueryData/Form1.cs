@@ -18,9 +18,9 @@ namespace DBMS.SLQ_QueryData
         {
             string server = @"LAPTOP-7KNTOGM4\SQLEXPRESS02";
             string db = "Minimart";
-            string strCon = string.Format(@"Data Source={0};Initial Catalog={1};" 
+            string strCon = string.Format(@"Data Source={0};Initial Catalog={1};"
             + "Integrated Security=True;Encrypt=False", server, db);
-            conn =new SqlConnection(strCon);
+            conn = new SqlConnection(strCon);
             conn.Open();
         }
 
@@ -36,16 +36,31 @@ namespace DBMS.SLQ_QueryData
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];*/
-            showData();
+            showData("SELECT * FROM Products");
         }
-        private void showData()
+        private void showData(string sql)
         {
-            string sql = "SELECT * FROM Products";
+            //string sql = "SELECT * FROM Products";
             da = new SqlDataAdapter(sql, conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            showData("SELECT EmployeeID,Title+FirstName+''+LastName EmpName, Position\r\nFROM Employees");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            showData("SELECT * FROM Categories");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            showData("SELECT * FROM Products");
         }
     }
 }
