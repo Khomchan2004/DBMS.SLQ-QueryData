@@ -1,4 +1,4 @@
-using Microsoft.Data.SqlClient;
+﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
 namespace DBMS.SLQ_QueryData
@@ -61,6 +61,11 @@ namespace DBMS.SLQ_QueryData
         private void button3_Click(object sender, EventArgs e)
         {
             showData("SELECT * FROM Products");
+        }
+
+        private void Form1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("นะจ๊ะ เตือนแล้วนะ");
         }
     }
 }
