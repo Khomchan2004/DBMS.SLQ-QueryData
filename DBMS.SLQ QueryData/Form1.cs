@@ -31,11 +31,21 @@ namespace DBMS.SLQ_QueryData
         private void Form1_Load(object sender, EventArgs e)
         {
             connect();
+            /*string sql = "SELECT * FROM Products";
+            da = new SqlDataAdapter(sql, conn);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            dataGridView1.DataSource = ds.Tables[0];*/
+            showData();
+        }
+        private void showData()
+        {
             string sql = "SELECT * FROM Products";
             da = new SqlDataAdapter(sql, conn);
             DataSet ds = new DataSet();
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
+
         }
     }
 }
